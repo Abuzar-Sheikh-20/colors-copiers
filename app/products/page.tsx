@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Settings, Zap, Printer, Scissors, Gauge, Shield } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function ProductsPage() {
   const equipment = [
@@ -151,9 +154,8 @@ export default function ProductsPage() {
         <div className="container mx-auto px-4">
           {equipment.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-20">
-              <div className="grid lg:grid-cols-2 gap-12 items-start` className="mb-20\">\
-              <div className="grid lg:grid-cols-2 gap-12 items-start\">\
-                <div className={sectionIndex % 2 === 1 ? 'lg:order-2' : ''}>\
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <div className={sectionIndex % 2 === 1 ? 'lg:order-2' : ''}>
                   <Image
                     src={section.image || "/placeholder.svg"}
                     alt={section.category}
@@ -161,29 +163,29 @@ export default function ProductsPage() {
                     height={400}
                     className="rounded-2xl shadow-lg w-full"
                   />
-                </div>\
-                <div className={sectionIndex % 2 === 1 ? 'lg:order-1\' : '\'}>\
-                  <h2 className="text-3xl font-bold text-gray-800 mb-8">{section.category}</h2>\
-                  <div className="space-y-8">\
-                    {section.products.map((product, productIndex) => (\
-                      <Card key={productIndex} className="p-6 hover:shadow-lg transition-shadow">\
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">{product.name}</h3>\
-                        <p className="text-gray-600 mb-4 text-sm">{product.specs}</p>\
-                        <div className="grid grid-cols-2 gap-2">\
-                          {product.features.map((feature, featureIndex) => (\
-                            <div key={featureIndex} className="flex items-center space-x-2 text-sm text-gray-600">\
-                              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>\
-                              <span>{feature}</span>\
-                            </div>\
-                          ))}\
-                        </div>\
-                      </Card>\
-                    ))}\
-                  </div>\
-                </div>\
-              </div>\
-            </div>\
-          ))}\
+                </div>
+                <div className={sectionIndex % 2 === 1 ? 'lg:order-1' : ''}>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-8">{section.category}</h2>
+                  <div className="space-y-8">
+                    {section.products.map((product, productIndex) => (
+                      <Card key={productIndex} className="p-6 hover:shadow-lg transition-shadow">
+                        <h3 className="text-xl font-semibold text-gray-800 mb-3">{product.name}</h3>
+                        <p className="text-gray-600 mb-4 text-sm">{product.specs}</p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {product.features.map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-center space-x-2 text-sm text-gray-600">
+                              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
